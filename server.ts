@@ -398,7 +398,7 @@ Usa formato Markdown militar conciso con viñetas y datos precisos.`;
   }
 });
 
-// Vite or Static Assets handling
+// Vite or Static Assets handling (skipped on Vercel Serverless where dist/ is served by CDN)
 async function startServer() {
   const isDev = process.env.NODE_ENV !== 'production';
 
@@ -422,7 +422,13 @@ async function startServer() {
   });
 }
 
-startServer().catch((err) => {
-  console.error('Failed to start POSEIDÓN-LOG server:', err);
-  process.exit(1);
-});
+if (!process.env.VERCEL) {
+  startServer().catch((err) => {
+    console.error('Failed to start POSEIDÓN-LOG server:', err);
+    process.exit(1);
+  });
+}
+
+export { app };
+export default app;
+
