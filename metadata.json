@@ -1,0 +1,6 @@
+{
+  "name": "POSEIDÓN-LOG",
+  "description": "Sistema de Inteligencia Artificial Militar de Mando, Control y Logística Integral para Fuerzas Navales",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
